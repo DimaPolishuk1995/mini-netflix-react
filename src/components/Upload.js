@@ -1,10 +1,25 @@
-import React, {Component} from 'react';
-import {Link} from 'react-router';
+import React, { Component } from 'react';
+import { Link } from 'react-router';
 import Nav from './Nav';
 
 class Upload extends Component {
 
+  state = { jokes: [] };
+
+  uploadWidget = () => {
+    window.cloudinary.openUploadWidget(
+      { cloud_name: 'sliceart',
+        upload_preset: 'thoqyx1m',
+        tags: ['miniflix']
+      },
+      function(error, result) {
+        console.log("This is the result of the last upload", result);
+      });
+  };
+
   render() {
+
+    const { jokes } = this.state;
 
     return (
       <div>
@@ -14,7 +29,7 @@ class Upload extends Component {
 
         <div className="col-sm-12">
           <div className="jumbotron text-center">
-            <button className="btn btn-lg btn-info"> Upload Video</button>
+            <button onClick={this.uploadWidget} className="btn btn-lg btn-info"> Upload Video</button>
           </div>
         </div>
       </div>
