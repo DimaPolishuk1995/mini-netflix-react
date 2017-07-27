@@ -9,7 +9,7 @@ class Upload extends Component {
   uploadWidget = () => {
     window.cloudinary.openUploadWidget(
       { cloud_name: 'sliceart',
-        upload_preset: 'thoqyx1m',
+        upload_preset: 'jvpc0iat',
         tags: ['miniflix']
       },
       function(error, result) {
